@@ -1,0 +1,11 @@
+listen_address: 0.0.0.0
+listen_port: 9610
+scrape_timeout_seconds: 60
+workers: 4
+targets:
+  - name: sc3200-rmc-01
+    address: https://10.10.10.12
+    username: monitor
+    password_env: REDFISH_SC3200_01_PASSWORD
+    verify_tls: false       # production: use ca_file instead
+    # ca_file: /etc/redfish-exporter/pki/internal-ca.pem

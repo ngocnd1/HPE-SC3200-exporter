@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redfish-hardware-exporter"
+version = "0.3.1"
+description = "Prometheus exporter optimized for HPE Scale-up 3200 Redfish RMC"
+requires-python = ">=3.10"
+dependencies = ["prometheus-client>=0.20,<1", "PyYAML>=6,<7", "requests>=2.31,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "build>=1,<2"]
+
+[project.scripts]
+redfish-exporter = "redfish_exporter.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
